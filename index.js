@@ -4,7 +4,7 @@ var gamePattern=[];
 var isStatred = false;
 var level = 0;
 
-$(document).keypress(function(){
+$(document).click(function(){
   if(!isStatred){
     $("h1").text("Level "+ level);
     nextSequence();
@@ -42,14 +42,15 @@ function check(currentLevel){
       }
     } else {
       playSound("wrong");
+      startOver();
       $("body").addClass("game-over");
-      $("#level-title").text("Game Over, Press Any Key to Restart");
+      $(".head").text("Game Over, click me to Restart");
 
       setTimeout(function () {
         $("body").removeClass("game-over");
       }, 200);
 
-      startOver();
+
     }
 }
 
